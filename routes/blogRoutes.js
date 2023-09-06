@@ -1,12 +1,10 @@
 // routes/blogRoutes.js
 const express = require('express');
 const router = express.Router();
-const { createBlogPost } = require('../controllers/blogController');
-
-router.post('/create', createBlogPost);
-// routes/blogRoutes.js
-
 const { getBlogPosts, getBlogPostById, updateBlogPost, deleteBlogPost } = require('../controllers/blogController');
+
+// routes/blogRoutes.js
+router.post('/create', createBlogPost);
 
 router.get('/', getBlogPosts);
 

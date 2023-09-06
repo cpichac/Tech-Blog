@@ -4,19 +4,6 @@ const router = express.Router();
 // controllers/blogController.js
 const { BlogPost } = require('../models'); // Import your Sequelize model
 
-// Define routes and their associated controller functions
-router.get('/', (req, res) => {
-  // Logic to render the homepage
-});
-
-router.get('/post/:id', (req, res) => {
-  // Logic to display a specific blog post
-});
-
-router.post('/post/:id/comment', (req, res) => {
-  // Logic to handle comment submission
-});
-
 // Controller function for creating a new blog post
 const createBlogPost = async (req, res) => {
   try {
@@ -90,11 +77,4 @@ const deleteBlogPost = async (req, res) => {
   }
 };
 
-
-
-
-// Export the router to be used in the main server.js file
-module.exports = router, { deleteBlogPost, updateBlogPost, createBlogPost, getBlogPosts, getBlogPostById };
-
-
-
+module.exports = { createBlogPost, getBlogPosts, getBlogPostById, updateBlogPost, deleteBlogPost };
