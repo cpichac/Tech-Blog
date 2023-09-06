@@ -1,0 +1,28 @@
+{{!-- Set the layout for this view --}}
+{{#extend "layouts/main"}}
+
+{{!-- Specify the content to be inserted into the layout --}}
+{{#content "content"}}
+  <div class="container">
+    <h1>User Profile</h1>
+    <h2>Welcome, {{user.username}}!</h2>
+
+    <h3>Your Blog Posts</h3>
+
+    {{#if userPosts.length}}
+      <ul class="blog-list">
+        {{#each userPosts}}
+          <li class="blog-post">
+            <h3><a href="/blog/{{id}}">{{title}}</a></h3>
+            <p class="post-date">Posted on {{formatDate createdAt}}</p>
+            <p>{{{truncate content 200}}}</p>
+            <a href="/dashboard/edit/{{id}}">Edit</a>
+            <a href="/dashboard/delete/{{id}}">Delete</a>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>You haven't posted any blog posts yet.</p>
+    {{/if}}
+  </div>
+{{/content}}
