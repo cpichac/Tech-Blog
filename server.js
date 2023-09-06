@@ -35,7 +35,8 @@ app.set('view engine', 'handlebars'); // Set Handlebars.js as the view engine
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use the defined routes from your controllers
-app.use(routes);
+app.use('/blog', blogRoutes);
+app.use('/user', userRoutes);
 
 // Start the Sequelize database connection
 sequelize.sync({ force: false }).then(() => {
