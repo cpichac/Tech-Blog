@@ -1,0 +1,35 @@
+{{!-- Set the layout for this view --}}
+{{#extend "layouts/main"}}
+
+{{!-- Specify the content to be inserted into the layout --}}
+{{#content "content"}}
+  <div class="container">
+    <h1>Dashboard</h1>
+    <h2>Your Blog Posts</h2>
+
+    <ul class="blog-list">
+      {{#each userPosts}}
+        <li class="blog-post">
+          <h3><a href="/blog/{{id}}">{{title}}</a></h3>
+          <p class="post-date">Posted on {{formatDate createdAt}}</p>
+          <p>{{{truncate content 200}}}</p>
+          <a href="/dashboard/edit/{{id}}">Edit</a>
+          <a href="/dashboard/delete/{{id}}">Delete</a>
+        </li>
+      {{/each}}
+    </ul>
+
+    <h2>Create a New Blog Post</h2>
+    <form action="/blog/create" method="POST">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="4" required></textarea>
+      </div>
+      <button type="submit">Create Post</button>
+    </form>
+  </div>
+{{/content}}
