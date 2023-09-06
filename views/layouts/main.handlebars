@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to your CSS file -->
+    <script src="/js/main.js"></script> <!-- Link to your JavaScript file -->
+</head>
+<body>
+    {{> header}} <!-- Include the header partial -->
+    <div class="content">
+        {{{body}}} <!-- This is where the page-specific content is inserted -->
+    </div>
+    {{> footer}} <!-- Include the footer partial -->
+</body>
+</html>

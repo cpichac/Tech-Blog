@@ -1,0 +1,21 @@
+{{!-- Set the layout for this view --}}
+{{#extend "layouts/main"}}
+
+{{!-- Specify the content to be inserted into the layout --}}
+{{#content "content"}}
+  <div class="container">
+    <h1>Welcome to the Tech Blog</h1>
+    <p>Explore the latest tech articles and blog posts.</p>
+
+    <h2>Recent Blog Posts</h2>
+    <ul class="blog-list">
+      {{#each blogPosts}}
+        <li class="blog-post">
+          <h3><a href="/blog/{{id}}">{{title}}</a></h3>
+          <p class="post-date">Posted on {{formatDate createdAt}}</p>
+          <p>{{{truncate content 200}}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/content}}

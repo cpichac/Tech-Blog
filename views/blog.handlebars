@@ -1,0 +1,19 @@
+{{!-- Set the layout for this view --}}
+{{#extend "layouts/main"}}
+
+{{!-- Specify the content to be inserted into the layout --}}
+{{#content "content"}}
+  <div class="container">
+    <h1>All Blog Posts</h1>
+
+    <ul class="blog-list">
+      {{#each blogPosts}}
+        <li class="blog-post">
+          <h2><a href="/blog/{{id}}">{{title}}</a></h2>
+          <p class="post-date">Posted on {{formatDate createdAt}}</p>
+          <p>{{{truncate content 200}}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+{{/content}}

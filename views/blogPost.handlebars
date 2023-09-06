@@ -1,0 +1,29 @@
+{{!-- Set the layout for this view --}}
+{{#extend "layouts/main"}}
+
+{{!-- Specify the content to be inserted into the layout --}}
+{{#content "content"}}
+  <div class="container">
+    <article class="blog-post">
+      <h1>{{blogPost.title}}</h1>
+      <p class="post-date">Posted on {{formatDate blogPost.createdAt}}</p>
+      <div class="post-content">
+        {{{blogPost.content}}}
+      </div>
+    </article>
+
+    <h2>Comments</h2>
+    <ul class="comment-list">
+      {{#each comments}}
+        <li class="comment">
+          <p>{{comment.text}}</p>
+          <p class="comment-author">Comment by {{comment.username}}</p>
+        </li>
+      {{/each}}
+    </ul>
+
+    {{!-- Add a form for users to submit new comments --}}
+    <form action="/comment/create" method="POST">
+      <input type="hidden" name="postId" value="{{blogPost.id}}">
+      <label for="commentText">Add a Comment:</label>
+      <textarea

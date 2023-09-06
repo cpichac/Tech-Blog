@@ -22,8 +22,14 @@ app.use(session({
 }));
 
 // Set up Handlebars.js as the view engine
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main', // Specify the default layout template (main.handlebars)
+  layoutsDir: path.join(__dirname, 'views/layouts'), // Path to the layouts directory
+  partialsDir: path.join(__dirname, 'views/partials'), // Path to the partials directory
+}));
+
+app.set('view engine', 'handlebars'); // Set Handlebars.js as the view engine
+
 
 // Serve static assets from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
