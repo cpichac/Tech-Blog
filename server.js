@@ -8,7 +8,7 @@ const routes = require('./controllers'); // Your routes
 
 // Create an instance of the Express.js application
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware to handle POST data
 app.use(express.json());
